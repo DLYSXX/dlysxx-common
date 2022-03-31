@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.dlysxx.www.common'
+version "${projectVersion}"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+    implementation "commons-io:commons-io:${commonsIoVersion}"
+    implementation "org.apache.commons:commons-compress:${commonsCompressVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
