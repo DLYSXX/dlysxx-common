@@ -41,12 +41,10 @@ test {
 
 signing {
     required { isReleaseVersion && gradle.taskGraph.hasTask("publish") }
+    def signingKeyId = findProperty("signingKeyId")
     def signingKey = findProperty("signingKey")
     def signingPassword = findProperty("signingPassword")
-    println "--------------------------"
-    println signingKey
-    println signingPassword
-    useInMemoryPgpKeys(signingKey, signingPassword)
+    useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
     sign publishing.publications
 }
 
