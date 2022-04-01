@@ -4,6 +4,14 @@ Common utils project
 ## 
 This project summarizes common used util tool classes.
 
+```
+<dependency>
+  <groupId>cn.dlysxx.www.common</groupId>
+  <artifactId>dlysxx-common</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
+
 ## Project structure
 ![img.png](img.png)
 
