@@ -41,6 +41,9 @@ test {
 
 signing {
     required { isReleaseVersion && gradle.taskGraph.hasTask("publish") }
+    def signingKey = System.getenv("SIGNING_KEY")
+    def signingPassword = System.getenv("SIGNING_PASSWORD")
+    useInMemoryPgpKeys(signingKey, signingPassword)
     sign publishing.publications
 }
 
@@ -83,8 +86,8 @@ publishing {
             name 'dlysxxCommonRepository'
             url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
             credentials {
-                username = "${sonatypeUsername}"
-                password = "${sonatypePassword}"
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
             }
         }
     }
