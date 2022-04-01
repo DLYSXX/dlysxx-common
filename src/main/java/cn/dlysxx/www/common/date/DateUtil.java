@@ -262,7 +262,7 @@ public class DateUtil {
      * Convert {@link Date} to {@link ZonedDateTime}.
      *
      * <p>
-     * e.g.</br>
+     * e.g.
      * If parameters are Date = 2016/04/19 23:00:00, timeZone = "UTC",
      * returns 2016/04/19 23:00:00 +0000 (UTC)
      * </p>
@@ -332,7 +332,7 @@ public class DateUtil {
     }
 
     /**
-     * Convert {@link ZonedDateTime} to {@link LocalDateTime}.</br>
+     * Convert {@link ZonedDateTime} to {@link LocalDateTime}.
      *
      * @param zonedDateTime
      *            {@link ZonedDateTime} (e.g. 2016/04/19 23:00:00 +0000)
@@ -365,7 +365,7 @@ public class DateUtil {
      * Convert {@link LocalDateTime} to {@link LocalDateTime}.
      *
      * @param localDateTime
-     *            {@link java.time.localDateTime} (e.g. 2016/04/19 23:00:00)
+     *            {@link java.time.LocalDateTime} (e.g. 2016/04/19 23:00:00)
      * @param from
      *            {@link ZoneId} like UTC.
      * @param to
@@ -454,7 +454,7 @@ public class DateUtil {
     }
 
     /**
-     * Convert {@link ZonedDateTime} to {@link LocalDate}.</br>
+     * Convert {@link ZonedDateTime} to {@link LocalDate}.
      *
      * @param zonedDateTime
      *            {@link ZonedDateTime} (e.g. 2016/04/19 23:00:00 +0000)
@@ -542,7 +542,7 @@ public class DateUtil {
     }
 
     /**
-     * Convert {@link ZonedDateTime} to {@link LocalTime}.</br>
+     * Convert {@link ZonedDateTime} to {@link LocalTime}.
      *
      * @param zonedDateTime
      *            {@link ZonedDateTime} (e.g. 2016/04/19 23:00:00 +0000)
@@ -616,7 +616,7 @@ public class DateUtil {
     }
 
     /**
-     * Convert {@link ZonedDateTime} to {@link Date}.</br>
+     * Convert {@link ZonedDateTime} to {@link Date}.
      *
      * @param zonedDateTime
      *            {@link ZonedDateTime} (e.g. 2016/04/19 23:00:00 +0000)
@@ -729,7 +729,7 @@ public class DateUtil {
     }
 
     /**
-     * Convert {@link ZonedDateTime} to {@link Calendar}.</br>
+     * Convert {@link ZonedDateTime} to {@link Calendar}.
      *
      * @param zonedDateTime
      *            {@link ZonedDateTime} (e.g. 2016/04/19 23:00:00 +0000)

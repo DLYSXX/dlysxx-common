@@ -1,9 +1,13 @@
 plugins {
     id 'java'
+    id 'maven-publish'
+    id 'signing'
 }
 
 group 'cn.dlysxx.www.common'
+archivesBaseName = "dlysxx-common"
 version "${projectVersion}"
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
 repositories {
     mavenCentral()
@@ -18,6 +22,75 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
 }
 
+jar {
+    enabled = true
+}
+task sourcesJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = 'sources'
+}
+task javadocJar(type: Jar) {
+    from javadoc
+    classifier = 'javadoc'
+}
+sourceSets.main.resources.srcDirs = ["src/main/java","src/main/resources"]
+
 test {
     useJUnitPlatform()
+}
+
+signing {
+    required { isReleaseVersion && gradle.taskGraph.hasTask("publish") }
+    sign publishing.publications
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId project.group
+            artifactId project.name
+            version project.version
+            //if war then use components.web, if jar then use components.java
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            pom {
+                name = 'dlysxx-common'
+                description = 'Dlysxx common utils'
+                url = 'https://github.com/DLYSXX/dlysxx-common'
+                licenses {
+                    license {
+                        name = 'BSD 3-Clause'
+                        url = 'https://spdx.org/licenses/BSD-3-Clause.html'
+                    }
+                }
+                developers {
+                    developer {
+                        name = 'shuai'
+                        email = 'shuai.zhou@dlysxx.cn'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/DLYSXX/dlysxx-common'
+                    connection = 'scm:git:https://github.com/DLYSXX/dlysxx-common.git'
+                    developerConnection = 'scm:git:https://github.com/DLYSXX/dlysxx-common.git'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            name 'dlysxxCommonRepository'
+            url "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            credentials {
+                username = "${sonatypeUsername}"
+                password = "${sonatypePassword}"
+            }
+        }
+    }
+}
+
+javadoc {
+    options.encoding = "UTF-8"
+    failOnError = false
 }
