@@ -30,7 +30,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
         
     - name: Init SIGNING_KEY and SIGNING_PASSWORD
-      run: echo "SIGNING_KEY=${{ secrets.SIGNING_KEY }}" >> $GITHUB_ENV && echo "SIGNING_PASSWORD=${{ secrets.SIGNING_PASSWORD }}" >> $GITHUB_ENV
+      run: echo "ORG_GRADLE_PROJECT_signingKey=${{ secrets.SIGNING_KEY }}" >> $GITHUB_ENV && echo "ORG_GRADLE_PROJECT_signingPassword=${{ secrets.SIGNING_PASSWORD }}" >> $GITHUB_ENV
 
     - name: Build with Gradle
       uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
