@@ -8,12 +8,12 @@ This project summarizes common used util tool classes.
 <dependency>
   <groupId>cn.dlysxx.www.common</groupId>
   <artifactId>dlysxx-common</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
 </dependency>
 ```
 
 ## Project structure
-![img.png](img.png)
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/61540695/163087019-39adfe5f-7d9a-4397-96ea-16ff7184b091.png">
 
 * AESCryptoUtil.java
   - encryptString
