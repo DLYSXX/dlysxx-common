@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+
+  <appender name="JSON_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+      <fieldNames>
+        <stackTrace>[ignore]</stackTrace>
+      </fieldNames>
+      <provider class="cn.dlysxx.www.common.logging.CustomStackTraceJsonProvider">
+        <throwableConverter class="net.logstash.logback.stacktrace.ShortenedThrowableConverter">
+          <maxDepthPerThrowable>100</maxDepthPerThrowable>
+          <maxLength>8192</maxLength>
+          <shortenedClassNameLength>20</shortenedClassNameLength>
+          <rootCauseFirst>true</rootCauseFirst>
+        </throwableConverter>
+      </provider>
+    </encoder>
+  </appender>
+
+  <appender name="TEXT_CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern><![CDATA[DT:%d{yyyy-MM-dd HH:mm:ss}\tTHRD:%thread\tLVL:%-5level\tLGR:%-48logger{48}\tMSG:%msg%n]]></pattern>
+    </encoder>
+  </appender>
+
+  <!-- 3rdparty Loggers -->
+  <logger name="org.springframework">
+    <level value="warn" />
+  </logger>
+
+  <logger name="org.springframework.web.servlet">
+    <level value="info" />
+  </logger>
+
+  <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+    <level value="info" />
+  </logger>
+
+  <logger name="org.springframework.jdbc.core.JdbcTemplate">
+    <level value="info" />
+  </logger>
+
+  <logger name="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <level value="info" />
+  </logger>
+
+</included>
