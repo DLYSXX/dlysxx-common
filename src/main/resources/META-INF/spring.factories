@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  cn.dlysxx.www.common.logging.LoggingAutoConfiguration

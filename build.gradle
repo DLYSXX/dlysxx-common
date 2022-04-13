@@ -14,10 +14,23 @@ repositories {
 }
 
 dependencies {
-    compileOnly "org.projectlombok:lombok:${lombokVersion}"
-    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+    implementation "org.slf4j:slf4j-api:${slf4jApiVersion}"
     implementation "commons-io:commons-io:${commonsIoVersion}"
+    implementation "org.aspectj:aspectjweaver:${aspectjweaverVersion}"
+    implementation "org.apache.logging.log4j:log4j-api:${log4jApiVersion}"
+    implementation "org.apache.commons:commons-lang3:${commonsLang3Version}"
+    implementation "org.springframework:spring-webmvc:${springWebMVCVersion}"
+    implementation "org.springframework.boot:spring-boot:${springBootVersion}"
     implementation "org.apache.commons:commons-compress:${commonsCompressVersion}"
+    implementation "org.springframework.boot:spring-boot-starter-aop:${springBootVersion}"
+    implementation "org.springframework.boot:spring-boot-autoconfigure:${springBootVersion}"
+    implementation "net.logstash.logback:logstash-logback-encoder:${logstashLogbackEncoderVersion}"
+    annotationProcessor "org.springframework.boot:spring-boot-autoconfigure-processor:${springBootVersion}"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
+
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+
+    testImplementation "ch.qos.logback:logback-classic:${logbackClassicVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
 }
