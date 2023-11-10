@@ -18,11 +18,21 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnProperty(value = "dlysxx.logging.enabled", havingValue = "true")
 public class LoggingAutoConfiguration {
 
+    /**
+     * Logging aspect.
+     * @param loggingProperties logging properties
+     * @return logging aspect
+     */
     @Bean
     public LoggingAspect loggingAspect(LoggingProperties loggingProperties) {
         return new LoggingAspect(loggingProperties);
     }
 
+    /**
+     * Logging properties.
+     * @param loggingProperties logging properties
+     * @return logging properties
+     */
     @Bean
     public LoggingProperties loggingProperties(LoggingProperties loggingProperties) {
         return loggingProperties;

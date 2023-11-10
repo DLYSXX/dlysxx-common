@@ -40,11 +40,11 @@ jar {
 }
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
-    archiveClassifier = 'sources'
+    archiveClassifier.set("sources")
 }
 task javadocJar(type: Jar) {
     from javadoc
-    classifier = 'javadoc'
+    archiveClassifier.set("javadoc")
 }
 sourceSets.main.resources.srcDirs = ["src/main/java","src/main/resources"]
 
