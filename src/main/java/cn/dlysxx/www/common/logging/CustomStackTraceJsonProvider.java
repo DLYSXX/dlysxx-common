@@ -16,13 +16,23 @@ import net.logstash.logback.composite.loggingevent.StackTraceJsonProvider;
  */
 public class CustomStackTraceJsonProvider extends StackTraceJsonProvider {
 
+    /** Custom field stack trace */
     public static final String CUSTOM_FIELD_STACK_TRACE = "stacktrace";
 
+    /**
+     * Constructor.
+     */
     public CustomStackTraceJsonProvider() {
         super();
         setFieldName(CUSTOM_FIELD_STACK_TRACE);
     }
 
+    /**
+     * Write stack trace into json.
+     * @param generator json generator
+     * @param event log event
+     * @throws IOException exception
+     */
     @Override
     public void writeTo(JsonGenerator generator, ILoggingEvent event) throws IOException {
         IThrowableProxy throwableProxy = event.getThrowableProxy();

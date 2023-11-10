@@ -7,6 +7,12 @@ import org.aspectj.lang.JoinPoint;
  * @author shuai
  */
 public final class AspectUtil {
+
+    /**
+     * Get request arguments
+     * @param joinPoint target joinPoint
+     * @return String
+     */
     public static String getArguments(JoinPoint joinPoint) {
         if (joinPoint.getArgs() == null) {
             return "argument is null";

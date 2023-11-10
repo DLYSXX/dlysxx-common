@@ -37,12 +37,20 @@ public class LoggingAspect {
     private Instant startTime;
     private Instant endTime;
 
+    /** logging properties */
     private final LoggingProperties loggingProperties;
 
+    /**
+     * Constructor.
+     * @param loggingProperties logging properties
+     */
     public LoggingAspect(LoggingProperties loggingProperties) {
         this.loggingProperties = loggingProperties;
     }
 
+    /**
+     * Logging classes.
+     */
     @Pointcut("@annotation(cn.dlysxx.www.common.logging.Logging)")
     public void loggingClasses() {
     }
