@@ -17,23 +17,26 @@ public class SystemException extends RuntimeException {
 
     /**
      * Constructor.
-     *
+     * @param code error code
      */
     public SystemException(String code) {
         this(code, null);
     }
 
     /**
-     * Constructor.
-     *
+     * Constructor
+     * @param code error code
+     * @param message error message
      */
     public SystemException(String code, String message) {
         this(code, message, null);
     }
 
     /**
-     * Constructor.
-     *
+     * Constructor
+     * @param code error code
+     * @param message error message
+     * @param cause exception
      */
     public SystemException(String code, String message, Throwable cause) {
         super(cause);
@@ -41,19 +44,35 @@ public class SystemException extends RuntimeException {
         this.message = message;
     }
 
+    /**
+     * Get error code
+     * @return error code
+     */
     public String getCode() {
         return code;
     }
 
+    /**
+     * Set error code
+     * @param code error code
+     */
     public void setCode(String code) {
         this.code = code;
     }
 
+    /**
+     * Get error message
+     * @return error message
+     */
     @Override
     public String getMessage() {
         return message;
     }
 
+    /**
+     * Set error message
+     * @param message error message
+     */
     public void setMessage(String message) {
         this.message = message;
     }

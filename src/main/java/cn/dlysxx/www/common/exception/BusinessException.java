@@ -17,7 +17,7 @@ public class BusinessException extends RuntimeException {
 
     /**
      * Constructor.
-     *
+     * @param code error code
      */
     public BusinessException(String code) {
         this(code, null);
@@ -25,7 +25,8 @@ public class BusinessException extends RuntimeException {
 
     /**
      * Constructor.
-     *
+     * @param code error code
+     * @param message error message
      */
     public BusinessException(String code, String message) {
         this(code, message, null);
@@ -33,7 +34,9 @@ public class BusinessException extends RuntimeException {
 
     /**
      * Constructor.
-     *
+     * @param code error code
+     * @param message error message
+     * @param cause exception
      */
     public BusinessException(String code, String message, Throwable cause) {
         super(cause);
@@ -41,19 +44,35 @@ public class BusinessException extends RuntimeException {
         this.message = message;
     }
 
+    /**
+     * Get error code
+     * @return error code
+     */
     public String getCode() {
         return code;
     }
 
+    /**
+     * Set error code
+     * @param code error code
+     */
     public void setCode(String code) {
         this.code = code;
     }
 
+    /**
+     * Get error message
+     * @return error message
+     */
     @Override
     public String getMessage() {
         return message;
     }
 
+    /**
+     * Set error message
+     * @param message error message
+     */
     public void setMessage(String message) {
         this.message = message;
     }
